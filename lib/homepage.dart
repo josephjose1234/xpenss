@@ -189,9 +189,9 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               transList.item,
                               style: TextStyle(
-                                color: themeProvider.isDarkMode
-                                    ? Colors.white
-                                    : Colors.black,
+                                color: transList.operator == '+'
+                                    ? Colors.green
+                                    : Colors.red,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
                               ),
@@ -218,8 +218,8 @@ class _HomePageState extends State<HomePage> {
                                     transList.amount.toString(),
                                     style: TextStyle(
                                       color: transList.operator == '+'
-                                            ? Colors.green
-                                            : Colors.red,
+                                          ? Colors.green
+                                          : Colors.red,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
                                     ),
@@ -231,9 +231,9 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   transList.DTime,
                                   style: TextStyle(
-                                      color: themeProvider.isDarkMode
-                                          ? Colors.white
-                                          : Colors.black),
+                                      color: transList.operator == '+'
+                                            ? Colors.green
+                                            : Colors.red,),
                                 ),
                               ),
                             ],
