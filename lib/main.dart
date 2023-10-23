@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
             DHome: DBase,
           ),
           backgroundColor: themeProvider.isDarkMode
-              ? Color.fromRGBO(20,33,6,1)
+              ? Color.fromRGBO(34,34,34, 1)
               : Color.fromRGBO(199,199,204,1)
         ),
       ),

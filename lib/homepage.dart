@@ -117,8 +117,6 @@ class _HomePageState extends State<HomePage> {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        // statusBarBrightness:
-        //     themeProvider.isDarkMode ? Brightness.light : Brightness.dark,
       ),
     );
     return Stack(children: [
@@ -129,9 +127,9 @@ class _HomePageState extends State<HomePage> {
             //AppBar
             AppBarr(Bal: total),
             //Search
-      
+
             //TransactionsHead
-            TransactionHead(),
+            TransactionHead(DTHead: widget.DHome),
             //Transactions
             Expanded(
               child: ListView.builder(
@@ -155,7 +153,8 @@ class _HomePageState extends State<HomePage> {
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
-                                  Navigator.of(context).pop(); // Close the dialog
+                                  Navigator.of(context)
+                                      .pop(); // Close the dialog
                                 },
                                 child: Icon(Icons.close_sharp, size: 30),
                               ),
@@ -163,7 +162,8 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   // Delete the transaction here
                                   _deleteTransaction(index);
-                                  Navigator.of(context).pop(); // Close the dialog
+                                  Navigator.of(context)
+                                      .pop(); // Close the dialog
                                 },
                                 child: Icon(Icons.check_rounded, size: 30),
                               ),
@@ -176,7 +176,9 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                         color:themeProvider.isDarkMode? Colors.black:Colors.white,
+                        color: themeProvider.isDarkMode
+                            ? Colors.black
+                            : Colors.white,
                       ),
                       height: 75,
                       child: Row(
@@ -187,7 +189,9 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               transList.item,
                               style: TextStyle(
-                                color:themeProvider.isDarkMode? Colors.white:Colors.black,
+                                color: themeProvider.isDarkMode
+                                    ? Colors.white
+                                    : Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
                               ),
@@ -203,13 +207,19 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.all(5),
                                     child: Text(
                                       transList.operator,
-                                      style: TextStyle(color:themeProvider.isDarkMode? Colors.white:Colors.black),
+                                      style: TextStyle(
+                                        color: transList.operator == '+'
+                                            ? Colors.green
+                                            : Colors.red,
+                                      ),
                                     ),
                                   ),
                                   Text(
                                     transList.amount.toString(),
                                     style: TextStyle(
-                                      color:themeProvider.isDarkMode? Colors.white:Colors.black,
+                                      color: transList.operator == '+'
+                                            ? Colors.green
+                                            : Colors.red,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
                                     ),
@@ -220,7 +230,10 @@ class _HomePageState extends State<HomePage> {
                                 padding: EdgeInsets.all(5),
                                 child: Text(
                                   transList.DTime,
-                                  style: TextStyle(color:themeProvider.isDarkMode? Colors.white:Colors.black),
+                                  style: TextStyle(
+                                      color: themeProvider.isDarkMode
+                                          ? Colors.white
+                                          : Colors.black),
                                 ),
                               ),
                             ],
@@ -244,7 +257,9 @@ class _HomePageState extends State<HomePage> {
           height: 70,
           margin: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-            color: themeProvider.isDarkMode ? Colors.black : Color.fromRGBO(242,242,247,1),
+            color: themeProvider.isDarkMode
+                ? Colors.black
+                : Color.fromRGBO(242, 242, 247, 1),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(

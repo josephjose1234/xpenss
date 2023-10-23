@@ -23,6 +23,7 @@ class _AppBarrState extends State<AppBarr> {
           borderRadius: BorderRadius.circular(50)),
       child: Center(
         child: Text(
+          
           '${widget.Bal.toString()}',
           style: TextStyle(
               fontSize: 30, fontWeight: FontWeight.bold, color: Colors.blue),
